@@ -213,9 +213,9 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 	}
 
 	yaml_mapping_end_event_initialize(&event);
-	yaml_emitter_emit_or_die(emitter, &event);*/
+	yaml_emitter_emit_or_die(emitter, &event);
 	
-}
+}*/
 
 void dt_to_yaml(FILE *f, struct dt_info *dti)
 {
