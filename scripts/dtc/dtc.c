@@ -36,7 +36,7 @@ int generate_symbols;	/* enable symbols & fixup support */
 int generate_fixups;		/* suppress generation of fixups on symbol support */
 int auto_label_aliases;		/* auto generate labels -> aliases */
 
-static int is_power_of_2(int x)
+/*static int is_power_of_2(int x)
 {
 	return (x > 0) && ((x & (x - 1)) == 0);
 }
@@ -56,10 +56,10 @@ static void fill_fullpaths(struct node *tree, const char *prefix)
 
 	for_each_child(tree, child)
 		fill_fullpaths(child, tree->fullpath);
-}
+}*/
 
-/* Usage related data. */
-static const char usage_synopsis[] = "dtc [options] <input file>";
+/*Usage related data.*/
+/*static const char usage_synopsis[] = "dtc [options] <input file>";
 static const char usage_short_opts[] = "qI:O:o:V:d:R:S:p:a:fb:i:H:sW:E:@Ahv";
 static struct option const usage_long_opts[] = {
 	{"quiet",            no_argument, NULL, 'q'},
@@ -270,7 +270,7 @@ int main(int argc, char *argv[])
 		default:
 			usage("unknown option");
 		}
-	}
+	}*/
 
 	/*if (argc > (optind+1))
 		usage("missing files");
@@ -279,7 +279,7 @@ int main(int argc, char *argv[])
 	else
 		arg = argv[optind];
 
-	minsize and padsize are mutually exclusive */
+	minsize and padsize are mutually exclusive*/
 	/*if (minsize && padsize)
 		die("Can't set both -p and -S\n");
 
@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
 			else
 				outform = "dts";
 		}
-	}*/
+	}
 	/*if (streq(inform, "dts"))
 		dti = dt_from_source(arg);
 	else if (streq(inform, "fs"))
