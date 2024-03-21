@@ -353,7 +353,7 @@ int main(int argc, char *argv[])
 			    outname, strerror(errno));
 	}
 
-	if (streq(outform, "dts")) {
+	/*if (streq(outform, "dts")) {
 		dt_to_source(outf, dti);
 #ifndef NO_YAML
 	} else if (streq(outform, "yaml")) {
@@ -366,10 +366,10 @@ int main(int argc, char *argv[])
 	} else if (streq(outform, "asm")) {
 		dt_to_asm(outf, dti, outversion);
 	} else if (streq(outform, "null")) {
-		/* do nothing */
+		do nothing
 	} else {
 		die("Unknown output format \"%s\"\n", outform);
 	}
 
 	exit(0);
-}
+}*/
