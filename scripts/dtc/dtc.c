@@ -272,15 +272,15 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (argc > (optind+1))
+	/*if (argc > (optind+1))
 		usage("missing files");
 	else if (argc < (optind+1))
 		arg = "-";
 	else
 		arg = argv[optind];
 
-	/* minsize and padsize are mutually exclusive */
-	if (minsize && padsize)
+	minsize and padsize are mutually exclusive */
+	/*if (minsize && padsize)
 		die("Can't set both -p and -S\n");
 
 	if (depname) {
@@ -289,9 +289,9 @@ int main(int argc, char *argv[])
 			die("Couldn't open dependency file %s: %s\n", depname,
 			    strerror(errno));
 		fprintf(depfile, "%s:", outname);
-	}
+	}*/
 
-	if (inform == NULL)
+	/*if (inform == NULL)
 		inform = guess_input_format(arg, "dts");
 	if (outform == NULL) {
 		outform = guess_type_by_name(outname, NULL);
@@ -301,8 +301,8 @@ int main(int argc, char *argv[])
 			else
 				outform = "dts";
 		}
-	}
-	if (streq(inform, "dts"))
+	}*/
+	/*if (streq(inform, "dts"))
 		dti = dt_from_source(arg);
 	else if (streq(inform, "fs"))
 		dti = dt_from_fs(arg);
@@ -321,10 +321,10 @@ int main(int argc, char *argv[])
 	if (cmdline_boot_cpuid != -1)
 		dti->boot_cpuid_phys = cmdline_boot_cpuid;
 
-	fill_fullpaths(dti->dt, "");
+	fill_fullpaths(dti->dt, "");*/
 
 	/* on a plugin, generate by default */
-	if (dti->dtsflags & DTSF_PLUGIN) {
+	/*if (dti->dtsflags & DTSF_PLUGIN) {
 		generate_fixups = 1;
 	}
 
@@ -351,9 +351,10 @@ int main(int argc, char *argv[])
 		if (! outf)
 			die("Couldn't open output file %s: %s\n",
 			    outname, strerror(errno));
-	}
+	
+	}*/
 
-	/*if (streq(outform, "dts")) {
+         /*if (streq(outform, "dts")) {
 		dt_to_source(outf, dti);
 #ifndef NO_YAML
 	} else if (streq(outform, "yaml")) {
