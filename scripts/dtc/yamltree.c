@@ -113,7 +113,7 @@ char *yaml_error_name[] = {
 
 	assert(str[len-1] == '\0');
 
-	/* Make sure the entire string is in the lower 7-bit ascii range */
+	Make sure the entire string is in the lower 7-bit ascii range*/
 	/*for (i = 0; i < len; i++)
 		assert(isascii(str[i]));
 
@@ -129,14 +129,14 @@ char *yaml_error_name[] = {
 	int len = prop->val.len;
 	struct marker *m = prop->val.markers;
 
-	/* Emit the property name */
-	/*yaml_scalar_event_initialize(&event, NULL,
+	Emit the property name
+	yaml_scalar_event_initialize(&event, NULL,
 		(yaml_char_t *)YAML_STR_TAG, (yaml_char_t*)prop->name,
 		strlen(prop->name), 1, 1, YAML_PLAIN_SCALAR_STYLE);
 	yaml_emitter_emit_or_die(emitter, &event);
 
-	/* Boolean properties are easiest to deal with. Length is zero, so just emit 'true' */
-	/*if (len == 0) {
+	Boolean properties are easiest to deal with. Length is zero, so just emit 'true'
+	if (len == 0) {
 		yaml_scalar_event_initialize(&event, NULL,
 			(yaml_char_t *)YAML_BOOL_TAG,
 			(yaml_char_t*)"true",
@@ -201,10 +201,10 @@ char *yaml_error_name[] = {
 	yaml_emitter_emit_or_die(emitter, &event);
 
 	for_each_property(tree, prop)
-		yaml_propval(emitter, prop);*/
+		yaml_propval(emitter, prop);
 
-	/* Loop over all the children, emitting them into the map */
-	/*for_each_child(tree, child) {
+	Loop over all the children, emitting them into the map 
+	for_each_child(tree, child) {
 		yaml_scalar_event_initialize(&event, NULL,
 			(yaml_char_t *)YAML_STR_TAG, (yaml_char_t*)child->name,
 			strlen(child->name), 1, 0, YAML_PLAIN_SCALAR_STYLE);
@@ -222,7 +222,7 @@ char *yaml_error_name[] = {
 	yaml_emitter_t emitter;
 	yaml_event_t event;
 
-	/*yaml_emitter_initialize(&emitter);
+	yaml_emitter_initialize(&emitter);
 	yaml_emitter_set_output_file(&emitter, f);
 	yaml_stream_start_event_initialize(&event, YAML_UTF8_ENCODING);
 	yaml_emitter_emit_or_die(&emitter, &event);
