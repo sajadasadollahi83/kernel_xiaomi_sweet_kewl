@@ -43,7 +43,7 @@ char *yaml_error_name[] = {
 		    (emitter)->problem, __func__, __LINE__);		\
 })
 
-static void yaml_propval_int(yaml_emitter_t *emitter, struct marker *markers, char *data, int len, int width)
+/*static void yaml_propval_int(yaml_emitter_t *emitter, struct marker *markers, char *data, int len, int width)
 {
 	yaml_event_t event;
 	void *tag;
@@ -114,7 +114,7 @@ static void yaml_propval_string(yaml_emitter_t *emitter, char *str, int len)
 	assert(str[len-1] == '\0');
 
 	/* Make sure the entire string is in the lower 7-bit ascii range */
-	for (i = 0; i < len; i++)
+	/*for (i = 0; i < len; i++)
 		assert(isascii(str[i]));
 
 	yaml_scalar_event_initialize(&event, NULL,
@@ -130,13 +130,13 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 	struct marker *m = prop->val.markers;
 
 	/* Emit the property name */
-	yaml_scalar_event_initialize(&event, NULL,
+	/*yaml_scalar_event_initialize(&event, NULL,
 		(yaml_char_t *)YAML_STR_TAG, (yaml_char_t*)prop->name,
 		strlen(prop->name), 1, 1, YAML_PLAIN_SCALAR_STYLE);
 	yaml_emitter_emit_or_die(emitter, &event);
 
 	/* Boolean properties are easiest to deal with. Length is zero, so just emit 'true' */
-	if (len == 0) {
+	/*if (len == 0) {
 		yaml_scalar_event_initialize(&event, NULL,
 			(yaml_char_t *)YAML_BOOL_TAG,
 			(yaml_char_t*)"true",
@@ -187,7 +187,7 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 }
 
 
-static void yaml_tree(struct node *tree, yaml_emitter_t *emitter)
+/*static void yaml_tree(struct node *tree, yaml_emitter_t *emitter)
 {
 	struct property *prop;
 	struct node *child;
@@ -201,10 +201,10 @@ static void yaml_tree(struct node *tree, yaml_emitter_t *emitter)
 	yaml_emitter_emit_or_die(emitter, &event);
 
 	for_each_property(tree, prop)
-		yaml_propval(emitter, prop);
+		yaml_propval(emitter, prop);*/
 
 	/* Loop over all the children, emitting them into the map */
-	for_each_child(tree, child) {
+	/*for_each_child(tree, child) {
 		yaml_scalar_event_initialize(&event, NULL,
 			(yaml_char_t *)YAML_STR_TAG, (yaml_char_t*)child->name,
 			strlen(child->name), 1, 0, YAML_PLAIN_SCALAR_STYLE);
@@ -214,14 +214,15 @@ static void yaml_tree(struct node *tree, yaml_emitter_t *emitter)
 
 	yaml_mapping_end_event_initialize(&event);
 	yaml_emitter_emit_or_die(emitter, &event);
-}
+	
+	}*/
 
-void dt_to_yaml(FILE *f, struct dt_info *dti)
+/*void dt_to_yaml(FILE *f, struct dt_info *dti)
 {
 	yaml_emitter_t emitter;
 	yaml_event_t event;
 
-	yaml_emitter_initialize(&emitter);
+	/*yaml_emitter_initialize(&emitter);
 	yaml_emitter_set_output_file(&emitter, f);
 	yaml_stream_start_event_initialize(&event, YAML_UTF8_ENCODING);
 	yaml_emitter_emit_or_die(&emitter, &event);
@@ -243,5 +244,5 @@ void dt_to_yaml(FILE *f, struct dt_info *dti)
 	yaml_stream_end_event_initialize(&event);
 	yaml_emitter_emit_or_die(&emitter, &event);
 
-	yaml_emitter_delete(&emitter);
+	yaml_emitter_delete(&emitter);*/
 }
