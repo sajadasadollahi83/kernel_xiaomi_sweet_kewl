@@ -35,13 +35,13 @@ char *yaml_error_name[] = {
 	[YAML_EMITTER_ERROR] = "emitter error",
 };
 
-#define yaml_emitter_emit_or_die(emitter, event) (			\
+/*#define yaml_emitter_emit_or_die(emitter, event) (			\
 {									\
 	if (!yaml_emitter_emit(emitter, event))				\
 		die("yaml '%s': %s in %s, line %i\n",			\
 		    yaml_error_name[(emitter)->error], 			\
 		    (emitter)->problem, __func__, __LINE__);		\
-})
+})*/
 
 /*static void yaml_propval_int(yaml_emitter_t *emitter, struct marker *markers, char *data, int len, int width)
 {
@@ -56,8 +56,8 @@ char *yaml_error_name[] = {
 		case 8: tag = "!u64"; break;
 		default:
 			die("Invalid width %i", width);
-	}
-	assert(len % width == 0);
+	}*/
+	/*assert(len % width == 0);
 
 	yaml_sequence_start_event_initialize(&event, NULL,
 		(yaml_char_t *)tag, width == 4, YAML_FLOW_SEQUENCE_STYLE);
@@ -84,8 +84,8 @@ char *yaml_error_name[] = {
 					is_phandle = true;
 					break;
 				}
-			}
-			break;
+			}*/
+			/*break;
 		case 8:
 			sprintf(buf, "0x%"PRIx64, fdt64_to_cpu(*(fdt64_t*)(data + off)));
 			break;
@@ -100,13 +100,13 @@ char *yaml_error_name[] = {
 				(yaml_char_t*)YAML_INT_TAG, (yaml_char_t *)buf,
 				strlen(buf), 1, 1, YAML_PLAIN_SCALAR_STYLE);
 		yaml_emitter_emit_or_die(emitter, &event);
-	}
+	}*/
 
-	yaml_sequence_end_event_initialize(&event);
+	/*yaml_sequence_end_event_initialize(&event);
 	yaml_emitter_emit_or_die(emitter, &event);
-}
+}*/
 
-static void yaml_propval_string(yaml_emitter_t *emitter, char *str, int len)
+/*static void yaml_propval_string(yaml_emitter_t *emitter, char *str, int len)
 {
 	yaml_event_t event;
 	int i;
@@ -121,9 +121,9 @@ static void yaml_propval_string(yaml_emitter_t *emitter, char *str, int len)
 		(yaml_char_t *)YAML_STR_TAG, (yaml_char_t*)str,
 		len-1, 0, 1, YAML_DOUBLE_QUOTED_SCALAR_STYLE);
 	yaml_emitter_emit_or_die(emitter, &event);
-}
+}*/
 
-static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
+/*static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 {
 	yaml_event_t event;
 	int len = prop->val.len;
@@ -143,9 +143,9 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 			strlen("true"), 1, 0, YAML_PLAIN_SCALAR_STYLE);
 		yaml_emitter_emit_or_die(emitter, &event);
 		return;
-	}
+	}*/
 
-	if (!m)
+	/*if (!m)
 		die("No markers present in property '%s' value\n", prop->name);
 
 	yaml_sequence_start_event_initialize(&event, NULL,
@@ -184,7 +184,7 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 
 	yaml_sequence_end_event_initialize(&event);
 	yaml_emitter_emit_or_die(emitter, &event);
-}
+}*/
 
 
 /*static void yaml_tree(struct node *tree, yaml_emitter_t *emitter)
@@ -244,5 +244,5 @@ static void yaml_propval(yaml_emitter_t *emitter, struct property *prop)
 	yaml_stream_end_event_initialize(&event);
 	yaml_emitter_emit_or_die(&emitter, &event);
 
-	yaml_emitter_delete(&emitter);*/
-}
+	yaml_emitter_delete(&emitter);
+}*/
